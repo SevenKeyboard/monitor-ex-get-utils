@@ -67,12 +67,12 @@ monitorExGetScaleFactor(N?, default:=100, force:=false)    {
 }
 ;---------------------------------------------
 monitorExGet(N?, &left?, &top?, &right?, &bottom?, force:=false)    {
-    return _monitorExGetRect("rcMonitor", N??unset, &left, &top, &right, &bottom, force)
+    return _monitorExGetRect_583C39F6("rcMonitor", N??unset, &left, &top, &right, &bottom, force)
 }
 monitorGetWorkArea(N?, &left?, &top?, &right?, &bottom?, force:=false)    {
-    return _monitorExGetRect("rcWork", N??unset, &left, &top, &right, &bottom, force)
+    return _monitorExGetRect_583C39F6("rcWork", N??unset, &left, &top, &right, &bottom, force)
 }
-_monitorExGetRect(propertyName, N?, &left?, &top?, &right?, &bottom?, force:=false)    {
+_monitorExGetRect_583C39F6(propertyName, N?, &left?, &top?, &right?, &bottom?, force:=false)    {
     if (!isSet(N))    {
         N:=1
         for i,info in monitorExGetInfoList()    {
