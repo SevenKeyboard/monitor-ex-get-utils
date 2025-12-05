@@ -8,9 +8,9 @@
 ; Author: SevenKeyboard Ltd. (2025)
 ; License: MIT License
 ;=============================================================
-class MonitorExGetUtils_VersionManager
+class VersionManager_MonitorExGetUtils
 {
-    static _ := MonitorExGetUtils_VersionManager._init()
+    static _ := VersionManager_MonitorExGetUtils._init()
     _init()    {
         global
         MONITOREXGETUTILS_VERSION := "1.0.0"
@@ -19,6 +19,7 @@ class MonitorExGetUtils_VersionManager
         return true
     }
     _verCheck(byRef actual, required)    {
+        local
         if !isSet(actual)
             return false
         actualMajor     := strSplit(actual, ".",, 2)[1]
