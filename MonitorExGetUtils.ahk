@@ -8,7 +8,7 @@
 ; Author: SevenKeyboard Ltd. (2025)
 ; License: MIT License
 ;=============================================================
-class MonitorExGetUtils_VersionManager
+class VersionManager_MonitorExGetUtils
 {
     static _ := this._init()
     static _init()    {
@@ -19,6 +19,7 @@ class MonitorExGetUtils_VersionManager
         return true
     }
     static _verCheck(&actual, required)    {
+        local
         if !isSet(actual)
             return false
         actualMajor     := strSplit(actual, ".",, 2)[1]
