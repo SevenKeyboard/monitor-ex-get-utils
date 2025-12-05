@@ -19,7 +19,6 @@ class VersionManager_MonitorExGetUtils
         return true
     }
     static _verCheck(&actual, required)    {
-        local
         if !isSet(actual)
             return false
         actualMajor     := strSplit(actual, ".",, 2)[1]
