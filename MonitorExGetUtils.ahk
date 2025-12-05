@@ -1,6 +1,6 @@
 ﻿#Requires AutoHotkey v1.1.17+
 #Include %A_ScriptDir%
-#Include .\lib\DisplayMonitorManager.ahk
+#Include .\lib\DisplayMonitorInfoManager.ahk
 ;=============================================================
 ; MonitorExGetUtils — Extended monitor information helpers
 ;
@@ -14,8 +14,8 @@ class VersionManager_MonitorExGetUtils
     _init()    {
         global
         MONITOREXGETUTILS_VERSION := "1.0.0"
-        if (!this._verCheck(DISPLAYMONITORMANAGER_VERSION, "1.0.0"))
-            throw exception("DisplayMonitorManager version 1.x is required (minimum 1.0.0).")
+        if (!this._verCheck(DISPLAYMONITORINFOMANAGER_VERSION, "1.0.0"))
+            throw exception("DisplayMonitorInfoManager version 1.x is required (minimum 1.0.0).")
         return true
     }
     _verCheck(byRef actual, required)    {
@@ -30,7 +30,7 @@ class VersionManager_MonitorExGetUtils
 }
 ;---------------------------------------------
 monitorExGetInfoList(force:=false)    {
-    return DisplayMonitorManager.getList(force)
+    return DisplayMonitorInfoManager.getList(force)
 }
 monitorExGetInfo(N:="", force:=false)    {
     if (N=="")    {
@@ -42,7 +42,7 @@ monitorExGetInfo(N:="", force:=false)    {
             }
         }
     }
-    list:=DisplayMonitorManager.getList(force), ErrorLevel:=list.hasKey(N)?0:1
+    list:=DisplayMonitorInfoManager.getList(force), ErrorLevel:=list.hasKey(N)?0:1
     return (list.hasKey(N)?list[N]:"")
 }
 ;---------------------------------------------
@@ -81,7 +81,7 @@ _monitorExGetRect_583C39F6(propertyName, N:="", byRef left:="", byRef top:="", b
             }
         }
     }
-    list:=DisplayMonitorManager.getList(force)
+    list:=DisplayMonitorInfoManager.getList(force)
     if (list.hasKey(N))    {
         left    := list[N][propertyName].left
         ,top    := list[N][propertyName].top
