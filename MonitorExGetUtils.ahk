@@ -15,7 +15,7 @@ class VersionManager_MonitorExGetUtils
         global
         MONITOREXGETUTILS_VERSION := "1.0.0"
         if (!this._verCheck(&DISPLAYMONITORINFOMANAGER_VERSION, "1.0.0"))
-            throw valueError("DisplayMonitorInfoManager version 1.x is required (minimum 1.0.0).")
+            throw error("DisplayMonitorInfoManager version 1.x is required (minimum 1.0.0).")
         return true
     }
     static _verCheck(&actual, required)    {
