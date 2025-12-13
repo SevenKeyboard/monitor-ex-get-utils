@@ -42,7 +42,7 @@ monitorExGetInfo(N:="", force:=false)    {
             }
         }
     }
-    list:=DisplayMonitorInfoManager.getList(force), ErrorLevel:=list.hasKey(N)?0:1
+    list:=DisplayMonitorInfoManager.getList(force), errorLevel:=list.hasKey(N)?0:1
     return (list.hasKey(N)?list[N]:"")
 }
 ;---------------------------------------------
@@ -87,16 +87,16 @@ _monitorExGetRect_583C39F6(propertyName, N:="", byRef left:="", byRef top:="", b
         ,top    := list[N][propertyName].top
         ,right  := list[N][propertyName].right
         ,bottom := list[N][propertyName].bottom
-        ,ErrorLevel:=0
+        ,errorLevel:=0
         return N
     }  else  {
-        left:= top:= right:= bottom:= "", ErrorLevel:=1
+        left:= top:= right:= bottom:= "", errorLevel:=1
         return 0
     }
 }
 monitorExGetName(N:="", force:=false)    {
     info:=monitorExGetInfo(N, force)
-    return !ErrorLevel
+    return !errorLevel
         ?info.szDevice
         :""
 }
