@@ -69,7 +69,7 @@ monitorExGetScaleFactor(N?, default:=100, force:=false)    {
 monitorExGet(N?, &left?, &top?, &right?, &bottom?, force:=false)    {
     return _monitorExGetRect_583C39F6("rcMonitor", N??unset, &left, &top, &right, &bottom, force)
 }
-monitorGetWorkArea(N?, &left?, &top?, &right?, &bottom?, force:=false)    {
+monitorExGetWorkArea(N?, &left?, &top?, &right?, &bottom?, force:=false)    {
     return _monitorExGetRect_583C39F6("rcWork", N??unset, &left, &top, &right, &bottom, force)
 }
 _monitorExGetRect_583C39F6(propertyName, N?, &left?, &top?, &right?, &bottom?, force:=false)    {
@@ -92,7 +92,7 @@ _monitorExGetRect_583C39F6(propertyName, N?, &left?, &top?, &right?, &bottom?, f
     }  else  {
         throw valueError(propertyName=="rcMonitor"
             ?"Parameter #1 of MonitorExGet is invalid"
-            :"Parameter #1 of MonitorGetWorkArea is invalid"
+            :"Parameter #1 of monitorExGetWorkArea is invalid"
             ,-2, N)
     }
 }
