@@ -3,7 +3,6 @@ $repoRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $artifacts = Join-Path $repoRoot ('.artifacts/version-check-' + [guid]::NewGuid().ToString('N'))
 [System.IO.Directory]::CreateDirectory($artifacts) | Out-Null
 $project = Join-Path $repoRoot 'src/SevenKeyboard.MonitorExGetUtils/SevenKeyboard.MonitorExGetUtils.csproj'
-$targets = [System.IO.Path]::GetFullPath((Join-Path $repoRoot '../../library-build/main-cs/CheckLibraryVersions.targets'))
 foreach ($testCase in @(
     @{ Version = '2.0.0'; Expected = '' },
     @{ Version = '2.1.0'; Expected = '' },
@@ -18,7 +17,7 @@ foreach ($testCase in @(
         '<Project />'
     }
     [System.IO.File]::WriteAllText($fixture, $content, [System.Text.UTF8Encoding]::new($false))
-    $output = & dotnet msbuild $project -nologo -t:CheckLibraryVersions "-p:DisplayMonitorInfoManagerProjectPath=$fixture" "-p:LibraryBuildTargetsPath=$targets" "-p:ArtifactsPath=$artifacts" -p:UseArtifactsOutput=true 2>&1
+    $output = & dotnet msbuild $project -nologo -t:CheckLibraryVersions "-p:DisplayMonitorInfoManagerProjectPath=$fixture" "-p:ArtifactsPath=$artifacts" -p:UseArtifactsOutput=true 2>&1
     $exitCode = $LASTEXITCODE
     if ($testCase.Expected -eq '') {
         if ($exitCode -ne 0) { throw "Expected success for $($testCase.Version): $output" }

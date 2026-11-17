@@ -50,15 +50,15 @@ no application UI integration is required. Its only automatic refresh trigger is
 
 ## Dependencies
 
-The project references the sibling source project:
+Check out the `main-cs` branch of both this repository and
+[`display-monitor-info-manager`](https://github.com/SevenKeyboard/display-monitor-info-manager).
+Under a common parent, use `monitor-ex-get-utils/main-cs` and
+`display-monitor-info-manager/main-cs` as the checkout directories.
 
-`../../../../display-monitor-info-manager/main-cs/src/SevenKeyboard.DisplayMonitorInfoManager/SevenKeyboard.DisplayMonitorInfoManager.csproj`
-
-It imports the sibling `library-build/main-cs/CheckLibraryVersions.targets`.
-The manager reference requires the same major version and at least **2.0.0**.
-Override `DisplayMonitorInfoManagerProjectPath` and `LibraryBuildTargetsPath`
-as MSBuild properties when using a different checkout layout. No dependency
-source files are copied into this repository.
+The bundled `build/CheckLibraryVersions.targets` checks that the manager is
+in the **2.x** series and is at least **2.0.0**. Override
+`DisplayMonitorInfoManagerProjectPath` when using a different checkout layout.
+The manager's source remains in its own repository.
 
 ## Build and test
 

@@ -8,7 +8,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <IsAotCompatible>true</IsAotCompatible>
     <DisplayMonitorInfoManagerProjectPath Condition="'$(DisplayMonitorInfoManagerProjectPath)' == ''">$(MSBuildThisFileDirectory)../../../../display-monitor-info-manager/main-cs/src/SevenKeyboard.DisplayMonitorInfoManager/SevenKeyboard.DisplayMonitorInfoManager.csproj</DisplayMonitorInfoManagerProjectPath>
-    <LibraryBuildTargetsPath Condition="'$(LibraryBuildTargetsPath)' == ''">$(MSBuildThisFileDirectory)../../../../library-build/main-cs/CheckLibraryVersions.targets</LibraryBuildTargetsPath>
+    <LibraryBuildTargetsPath Condition="'$(LibraryBuildTargetsPath)' == ''">$(MSBuildThisFileDirectory)../../build/CheckLibraryVersions.targets</LibraryBuildTargetsPath>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="$(DisplayMonitorInfoManagerProjectPath)" MinimumVersion="2.0.0" />
